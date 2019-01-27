@@ -1,0 +1,5 @@
+For start RabbitMQ with using Docker
+
+``
+ docker run --hostname my-rabbit --name some-rabbit -p 5672:5672 -p 15672:15672 rabbitmq:3
+``
