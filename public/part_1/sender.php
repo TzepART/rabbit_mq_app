@@ -3,27 +3,23 @@
  * Created by PhpStorm.
  * User: artem
  * Date: 2019-01-27
- * Time: 21:47
+ * Time: 21:45
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
+use PhpAmqpLib\Message\AMQPMessage;
 
 $connection = new AMQPStreamConnection('localhost', 5672, 'user', 'pass');
 
 $channel = $connection->channel();
 $channel->queue_declare('hello', false, false, false, false);
 
-echo " [*] Waiting for messages. To exit press CTRL+C\n";
-$callback = function ($msg) {
-    echo ' [x] Received ', $msg->body, "\n";
-};
+$msg = new AMQPMessage('Hello World!');
+$channel->basic_publish($msg, '', 'hello');
 
-$channel->basic_consume('hello', '', false, true, false, false, $callback);
-while (count($channel->callbacks)) {
-    $channel->wait();
-}
+echo " [x] Sent 'Hello World!'\n";
 
 $channel->close();
 $connection->close();
