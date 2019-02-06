@@ -6,12 +6,9 @@
  * Time: 00:47
  */
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../connection.php';
 
-use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
-
-$connection = new AMQPStreamConnection('localhost', 5672, 'user', 'pass');
 
 $channel = $connection->channel();
 $channel->queue_declare('task_queue', false, true, false, false);

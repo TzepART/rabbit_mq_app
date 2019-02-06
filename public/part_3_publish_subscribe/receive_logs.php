@@ -6,11 +6,7 @@
  * Time: 23:21
  */
 
-require_once __DIR__ . '/../../vendor/autoload.php';
-
-use PhpAmqpLib\Connection\AMQPStreamConnection;
-
-$connection = new AMQPStreamConnection('localhost', 5672, 'user', 'pass');
+require_once __DIR__ . '/../connection.php';
 
 $channel = $connection->channel();
 $channel->exchange_declare('logs', 'fanout', false, false, false);
