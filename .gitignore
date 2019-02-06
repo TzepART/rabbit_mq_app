@@ -2,3 +2,4 @@
 .idea
 vendor
 .env
+public/part_3_publish_subscribe/logs_from_rabbit.log
