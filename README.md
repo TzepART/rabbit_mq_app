@@ -4,12 +4,23 @@ Project for researching of RabbitMQ opportunities
 * [Tutorial for PHP](http://www.rabbitmq.com/tutorials/tutorial-one-php.html)
 * [Examples](https://github.com/rabbitmq/rabbitmq-tutorials/tree/master/php)
 
+## Setup
 For download Php library for RabbitMQ run
 
 ``
 composer install
 ``
 
+Declare environment variables for RabbitMQ.
+For this, you should copy `.env.dist` as `.env`:
+
+``
+cp .env.dist .env
+``
+
+... and set needed environment variables.
+
+## Usage
 For start RabbitMQ with using Docker
 
 ``
