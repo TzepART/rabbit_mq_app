@@ -33,7 +33,7 @@ For start RabbitMQ with using Docker
  docker-compose up -d
 ``
 
-Lessons
+Lessons:
 * [Lesson 1 - Hello World!](http://www.rabbitmq.com/tutorials/tutorial-one-php.html) - [Code source](public/part_1_hello)
 * [Lesson 2 - Work Queues](http://www.rabbitmq.com/tutorials/tutorial-two-php.html) - [Code source](public/part_2_work_queues)
 * [Lesson 3 - Publish/Subscribe](http://www.rabbitmq.com/tutorials/tutorial-three-php.html) - [Code source](public/part_3_publish_subscribe)
