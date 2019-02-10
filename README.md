@@ -27,7 +27,7 @@ For start RabbitMQ with using Docker
  docker-compose up
 ``
 
-... or run as deamon
+... or run as daemon
 
 ``
  docker-compose up -d
