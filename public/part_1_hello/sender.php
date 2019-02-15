@@ -9,9 +9,13 @@
 require_once __DIR__ . '/../connection.php';
 
 use PhpAmqpLib\Message\AMQPMessage;
+use \Model\QueueDeclarer;
 
 $channel = $connection->channel();
-$channel->queue_declare('hello', false, false, false, false);
+
+(new QueueDeclarer('hello'))
+    ->setAutoDelete(false)
+    ->declareQueueByParams($channel);
 
 $msg = new AMQPMessage('Hello World!');
 $channel->basic_publish($msg, '', 'hello');

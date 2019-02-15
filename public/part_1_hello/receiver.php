@@ -8,8 +8,13 @@
 
 require_once __DIR__ . '/../connection.php';
 
+use \Model\QueueDeclarer;
+
 $channel = $connection->channel();
-$channel->queue_declare('hello', false, false, false, false);
+
+(new QueueDeclarer('hello'))
+    ->setAutoDelete(false)
+    ->declareQueueByParams($channel);
 
 echo " [*] Waiting for messages. To exit press CTRL+C\n";
 $callback = function ($msg) {
